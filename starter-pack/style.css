@@ -10,14 +10,18 @@ Więcej na ten temat: https://cssreset.com/what-is-a-css-reset/
 
 * {
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
+    background-color: #25072E;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin: 0;
 }
 
@@ -25,6 +29,110 @@ ul {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+h1,
+.content-section__header {
+    color: #EF008E;
+    font-size: 28px bold;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+    padding: 20px 0px;
+}
+
+h2,
+.about-section__desc-header {
+    font-size: 15px bold;
+    letter-spacing: 3.8px;
+    color: #CCC8FF;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+}
+
+.band-members__image:hover {
+    opacity: 50%;
+}
+
+.page-navigation__item {
+    color: #EF008E;
+    font-size: 13px bold;
+
+}
+
+.band-members__name {
+    font-size: 15px bold;
+    letter-spacing: 3.8px;
+    color: #CCC8FF;
+    text-transform: uppercase;
+}
+
+.band-members__desc {
+    color: #CCC8FF, 0.5;
+    font-size: 13px;
+}
+
+
+.band-members {
+    display: flex;
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.band-members__item {}
+
+.button {
+    background-color: hsl(244, 100%, 89%, 10%);
+    color: #DBD8FB;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+}
+
+.button:hover {
+    background-color: hsl(244, 100%, 89%, 20%);
+    color: #DBD8FB;
+    text-transform: uppercase;
+    font-size: 12px;
+    border-radius: 10px;
+    padding: 11px 21px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+}
+
+.concerts__location,
+.concerts__date,
+.about-section__desc-details {
+    color: #CCC8FF;
+}
+
+.gallery {
+    display: grid;
+    grid-template: repeat(3, 233.33px) / repeat(3, 350px);
+    gap: 20px;
+
+}
+
+.gallery__image {
+    max-width: 350px;
+}
+
+.concerts {
+    display: grid;
+    grid-template: repeat(2, 240px) / repeat(2, 200px);
+    gap: 30px
+}
+
+.concerts__item {
+    max-width: 200px;
 }
 
 /*
@@ -48,23 +156,25 @@ Więcej na ten temat: https://webaim.org/techniques/css/invisiblecontent/
 Sekcja pomocnicza, aby zwizualizować pozycje głównych bloków strony. Będzie usunięta w następnych krokach.
 */
 .page-header {
-    background-color: #ffb1b1;
+    background-color: #25072E;
 }
 
 .page-content {
-    background-color: #b0ffb0;
+    background-color: #25072E;
 }
 
 .page-footer {
-    background-color: #7ba3ff;
+    background-color: #25072E;
 }
 
 .content-section {
-    background-color: #ca9aca;
+    background-color: #25072E;
 }
+
 .content-section:nth-child(odd) {
-    background-color: #e69fe6;
+    background-color: #25072E
 }
+
 /*
 Koniec sekcji pomocniczej
 */
