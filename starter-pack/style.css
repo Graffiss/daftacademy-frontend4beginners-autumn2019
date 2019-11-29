@@ -4,19 +4,29 @@ które się różnią w zależności od producenta (np. Chrome, Firefox, Opera, 
 Dlatego popularną praktyką jest tworzenie tzw. resetów,
 czyli plików CSS zawierających reguły, które nadpisują te wartości,
 aby były one jednolite niezalenie od przeglądarki.
-
 Więcej na ten temat: https://cssreset.com/what-is-a-css-reset/
 */
 
 * {
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #25072E;
+    /*
+    "background-image" - ustawiamy obrazek z projektu graficznego jako tło całej witryny
+    "background-size: cover" sprawia, że obrazek tła będzie skalowany tak, żeby wypełniać ekran w całości
+        niezależnie od proporcji ekranu
+    ""
+    */
+    background-image: url('./images/background.svg');
+    /*
+    */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1,
@@ -31,116 +41,10 @@ ul {
     padding: 0;
 }
 
-h1,
-.content-section__header {
-    color: #EF008E;
-    font-size: 28px bold;
-    letter-spacing: 4.5px;
-    text-transform: uppercase;
-    padding: 20px 0px;
-}
-
-h2,
-.about-section__desc-header {
-    font-size: 15px bold;
-    letter-spacing: 3.8px;
-    color: #CCC8FF;
-    text-transform: uppercase;
-}
-
-a {
-    text-decoration: none;
-}
-
-.band-members__image:hover {
-    opacity: 50%;
-}
-
-.page-navigation__item {
-    color: #EF008E;
-    font-size: 13px bold;
-
-}
-
-.band-members__name {
-    font-size: 15px bold;
-    letter-spacing: 3.8px;
-    color: #CCC8FF;
-    text-transform: uppercase;
-}
-
-.band-members__desc {
-    color: #CCC8FF, 0.5;
-    font-size: 13px;
-}
-
-
-.band-members {
-    display: flex;
-    height: 100vh;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.band-members__item {}
-
-.button {
-    background-color: hsl(244, 100%, 89%, 10%);
-    color: #DBD8FB;
-    text-transform: uppercase;
-    font-size: 12px;
-    border-radius: 10px;
-    padding: 10px 20px;
-    text-decoration: none;
-    text-align: center;
-    border: none;
-}
-
-.button:hover {
-    background-color: hsl(244, 100%, 89%, 20%);
-    color: #DBD8FB;
-    text-transform: uppercase;
-    font-size: 12px;
-    border-radius: 10px;
-    padding: 11px 21px;
-    text-decoration: none;
-    text-align: center;
-    border: none;
-}
-
-.concerts__location,
-.concerts__date,
-.about-section__desc-details {
-    color: #CCC8FF;
-}
-
-.gallery {
-    display: grid;
-    grid-template: repeat(3, 233.33px) / repeat(3, 350px);
-    gap: 20px;
-
-}
-
-.gallery__image {
-    max-width: 350px;
-}
-
-.concerts {
-    display: grid;
-    grid-template: repeat(2, 240px) / repeat(2, 200px);
-    gap: 30px
-}
-
-.concerts__item {
-    max-width: 200px;
-}
-
 /*
 ZAGADNIENIE PONADPROGRAMOWE
-
 Rekomendowany zestaw właściwości, które pozwalają na ukrycie tekstu w taki sposób,
 że będzie niewidoczny do standardowego użytkownika, a czytniki ekranowe wciąż będą go czytać.
-
 Więcej na ten temat: https://webaim.org/techniques/css/invisiblecontent/
 */
 .screen-reader-only {
@@ -153,30 +57,76 @@ Więcej na ten temat: https://webaim.org/techniques/css/invisiblecontent/
 }
 
 /*
-Sekcja pomocnicza, aby zwizualizować pozycje głównych bloków strony. Będzie usunięta w następnych krokach.
+######################################
+TYPOGRAFIA
+######################################
 */
-.page-header {
-    background-color: #25072E;
+
+body {
+    color: rgba(204, 200, 255, 0.8);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: normal;
 }
 
-.page-content {
-    background-color: #25072E;
-}
-
-.page-footer {
-    background-color: #25072E;
-}
-
-.content-section {
-    background-color: #25072E;
-}
-
-.content-section:nth-child(odd) {
-    background-color: #25072E
+a {
+    color: #EF008E;
+    text-decoration: none;
 }
 
 /*
-Koniec sekcji pomocniczej
+######################################
+PRZYCISKI
+######################################
+*/
+
+.button {
+    padding: 7px 15px;
+    border-radius: 3px;
+    background-color: rgba(204, 200, 255, 0.1);
+    border-color: rgba(204, 200, 255, 0.1);
+
+    color: rgba(204, 200, 255, 0.8);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    cursor: pointer;
+}
+
+.button--contact {
+    margin-top: 20px;
+}
+
+/*
+######################################
+FORMULARZE
+######################################
+*/
+
+.form__field {
+    margin-bottom: 10px;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 9px;
+}
+
+.form__input {
+    display: block;
+    height: 35px;
+    width: 300px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(219, 216, 251, 0.1);
+}
+
+/*
+######################################
+GŁÓWNY LAYOUT STRONY
+######################################
 */
 
 /*
@@ -205,21 +155,257 @@ o 50px, więc można założyć, że 220px marginesu będzie wartością stosunk
 Z kolei spady (padding) nadane na kontener wyznaczają minimalną odległość, na jaką będzie oddalona
 treść strony od otaczających ją granic kontenera (wartość "0 10%" jest
 skrótem od padding-top: 0, padding-bottom: 0, padding-left: 10%, padding-right: 10%).
+Więcej skrótów paddingu: https://developer.mozilla.org/en-US/docs/Web/CSS/padding
 Właściwość "text-align: right" przykleja zawartość do prawej strony
 (oddziałuje na elementy, które są elementami inline'owymi, np. tekst, znaczniki <a>, <span> czy elementy z nadanym stylem "display: inline-block").
 */
 .page-content {
     margin-left: 220px;
     padding: 0 10%;
-    text-align: right;
 }
+
+/*
+######################################
+NAWIGACJA
+######################################
+*/
+
+.page-navigation__items {
+    padding-top: 15px;
+}
+
+.page-navigation__link {
+    line-height: 30px;
+    text-transform: uppercase;
+    letter-spacing: 6.7px;
+}
+
+/*
+######################################
+LINKI DO SOCIAL MEDIA
+######################################
+*/
+
+
+.social-links__item+.social-links__item {
+    margin-top: 15px;
+}
+
+.social-links__img {
+    width: 20px;
+    height: 20px;
+}
+
+/*
+######################################
+STYLE WSPÓLNE DLA WSZYSTKICH SEKCJI
+######################################
+*/
 
 /*
 Projekt graficzny zakłada, że każda sekcja strony będzie wypełniać całą wysokość okna przeglądarki
 lub więcej, jeśli zawartość danej sekcji jest wyższa. Dlatego świetnym rozwiązaniem
 będzie użycie jednostki "vh", która oznacza 1% wysokości okna przeglądarki z właściwością "min-height",
 która wymusza wysokość elementu na zadaną wartość lub wyższą.
+Następnie sekcje zostają zdefiniowane jako kontener flexbox (display: flex) co pozwala
+na większą kontrolę nad zachowaniem elementów wewnątrz.
+Zakładamy, ze każda sekcja strony ma bazową strukturę w formacie:
+    <section class="content-section">
+        <h2 class="content-section__header">{nagłówek sekcji}</h2>
+        <div class="content-section__body">
+            {zawartość sekcji}
+        </div>
+    </section>
 */
 .content-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
     min-height: 100vh;
+}
+
+.content-section__header {
+    margin-bottom: 60px;
+    color: #EF008E;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 4.5px;
+    text-transform: uppercase;
+}
+
+.content-section__body {
+    flex-grow: 1;
+}
+
+/*
+######################################
+SEKCJA "HOME"
+######################################
+*/
+
+.content-section.home-section {
+    align-items: center;
+}
+
+.band-members {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*
+Tymczasowo ukrywamy tę sekcję, zajmiemy się nią na następnych zajęciach.
+*/
+.band-members__name,
+.band-members__desc {
+    display: none;
+}
+
+/*
+######################################
+SEKCJA "ABOUT"
+######################################
+*/
+
+/*
+Żeby ustawić opis zespołu w rogu zdjęcia, można zastosować popularną sztuczkę z pozycjonowaniem.
+Wykorzystuje ona właściwość elementów z "position: absolute", których położenie jest ustalane
+względem najbliższego mu rodzica, który jest pozycjonowany (ma ustawione "position" na inne
+niż "static", czyli "absolute", "relative", "fixed" lub "sticky").
+Dlatego gdy na jego rodzica "about" ustawimy "position: relative" (które bez parametrów
+dodatkowych top, left, bottom, right, nic nie zmienia w jego pozycji), to zawarty w nim
+element "about__desc" ustawia się absolutnie względem niego.
+Gdy dodamy wartości "left: -290px" i "bottom: -115px", wtedy "about__desc" będzie wystawać
+z lewego dolnego rogu "about" dokładnie o te odległości.
+Natomiast aby nie dopuścić do sytuacji, że wystający "about__desc" nachodził
+na sąsiadujące sekcje na stronie, nadajemy "about" marginesy adekwatne do odległości
+podane przy pozycjonowaniu "about_desc".
+*/
+.about {
+    position: relative;
+    margin-left: 290px;
+    margin-bottom: 115px;
+}
+
+.about__image {
+    max-width: 100%;
+    border-top: 3px solid #EF008E;
+}
+
+.about__desc-header {
+    margin-bottom: 30px;
+    color: #CCC8FF;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.about__desc {
+    position: absolute;
+    left: -290px;
+    bottom: -115px;
+    width: 380px;
+    padding: 30px;
+    background-color: #25072e;
+    border-bottom: 3px solid #EF008E;
+}
+
+/*
+######################################
+SEKCJA "CONCERTS"
+######################################
+*/
+
+.concerts {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 55px;
+    row-gap: 45px;
+}
+
+.concerts__image {
+    max-width: 100%;
+    border-bottom: 3px solid #EF008E;
+}
+
+.concerts__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.concerts__info-base {
+    flex-grow: 1;
+}
+
+.concerts__date {
+    margin: 0;
+    color: #CCC8FF;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 3.8px;
+}
+
+.concerts__location {
+    margin: 0;
+    letter-spacing: 3.8px;
+}
+
+/*
+######################################
+SEKCJA "VIDEO"
+######################################
+*/
+
+.embedded-video {
+    border-top: 3px solid #EF008E;
+}
+
+/*
+######################################
+SEKCJA "PHOTOS"
+######################################
+*/
+
+.gallery {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.gallery__image {
+    max-width: 100%;
+    border-top: 3px solid #EF008E;
+}
+
+/*
+######################################
+SEKCJA "CONTACT"
+######################################
+*/
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contact__img {
+    max-width: 100%;
+}
+
+.contact__address {
+    padding: 70px;
+    font-style: normal;
+}
+
+.contact__form {
+    flex-basis: 50%;
+    padding-top: 40px;
 }
